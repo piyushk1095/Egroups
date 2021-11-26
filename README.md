@@ -52,7 +52,7 @@ CREATE TABLE `bugs` (
 ### Backend:
 
 *** 
-Add mysql database credentals to [Egroups/Trackers/src/main/resources/application.properties]
+Add mysql database credentials to [Egroups/Trackers/src/main/resources/application.properties]
 
 To run the application run the file `Application.java` as java application [Egroups/Trackers/src/main/java/com/demo/Application.java]
 
@@ -74,7 +74,7 @@ Developers to add as `POST` http://localhost:8080/dev
 Stories to add use postman as `POST` as use url http://localhost:8080/stories 
 ```
 {
-    "title": "New Jira Created",
+    "title": "Jira1",
     "creationDate": "2021-10-02T23:59:51+01:00",
     "estimatedPoints": 18,
     "status": "NEW"
@@ -82,8 +82,8 @@ Stories to add use postman as `POST` as use url http://localhost:8080/stories
 ```
 ***
 
-To get list of Stories use postmas as GET and use url `http://localhost:8080/stories`
+To get list of Stories use postman as GET and use url `http://localhost:8080/stories`
 
 ***
 
-To get list of Developers use postmas as GET and use url `http://localhost:8080/dev`
+To get list of Developers use postman as GET and use url `http://localhost:8080/dev`
