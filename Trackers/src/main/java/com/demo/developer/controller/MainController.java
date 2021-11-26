@@ -3,9 +3,7 @@ package com.demo.developer.controller;
 import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -78,7 +76,9 @@ public class MainController {
 		// System.out.println(stories.getEstimatedPoints());
 		return serviceStories.listAll();
 	}
-
+	
+	
+	// to add new story for developer
 	@PostMapping("/stories")
 	public ResponseEntity<String> add(@RequestBody Stories stories) throws ParseException {
 
@@ -118,42 +118,6 @@ public class MainController {
 
 		}
 		return ResponseEntity.ok("successfully added");
-
-	}
-
-	public Map<String, Integer> checkMaxCount()
-
-	{
-		List<Developer> st = service.devSet();
-		Developer developer = null;
-
-		Map<String, Integer> map = new HashMap<String, Integer>();
-
-		for (int i = 0; i < st.size(); i++) {
-			developer = new Developer();
-
-			developer = st.get(i);
-			int totalestimation = serviceStories.totalEstimation(developer.getName());
-
-			map.put(developer.getName(), totalestimation);
-		}
-		return map;
-
-	}
-
-	public int pointDistribution(Stories stories) {
-		int pointDistribution = 0;
-		List<Developer> st = service.devSet();
-		int totalDev = st.size();
-		int newEstimatedPoint = stories.getEstimatedPoints();
-
-		if ((newEstimatedPoint % totalDev) == 0) {
-			pointDistribution = newEstimatedPoint / totalDev;
-			return pointDistribution;
-		} else {
-			pointDistribution = newEstimatedPoint / totalDev + 1;
-			return pointDistribution;
-		}
 
 	}
 
@@ -214,6 +178,7 @@ public class MainController {
 		return stories;
 	}
 
+	// To add stories to developer for first time
 	public Stories storiesAssForFirstTime(Stories stories, int weekPoint) {
 
 		weekPoint = 10;
@@ -301,6 +266,8 @@ public class MainController {
 		return stories2;
 
 	}
+
+	// To add new stories when developer has already new task in buckets
 
 	public Stories storiesforRestWeek(Stories stories, int weekPoint, int newWeek) {
 		List<Developer> devList = service.devSet();
